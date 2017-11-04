@@ -1,5 +1,5 @@
 ﻿%\documentclass{book}%
-\documentclass[11pt, fleqn]{book} % Default font size and left-justified equations%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+\documentclass[12pt, fleqn]{book} % Default font size and left-justified equations%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------
 %
@@ -83,22 +83,6 @@
 \endgroup
 
 
-%\begingroup
-%\thispagestyle{empty}
-%\begin{tikzpicture}[remember picture,overlay]
-%\coordinate [below=12cm] (midpoint) at (current page.north);
-%\node at (current page.north west)
-%{\begin{tikzpicture}[remember picture,overlay]
-%	\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{background}}; % Background image
-%	\draw[anchor=north] (midpoint) node [fill=lightblue!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Exercises and Problems\\
-%			for Introductory Programming Courses\\[15pt] % Book title
-%			{\Large A Python Based Course}\\[20pt] % Subtitle
-%			{\huge Dr. Lilian Blot}}}; % Author name
-%	\end{tikzpicture}};
-%\end{tikzpicture}
-%\vfill
-%\endgroup
-
 %----------------------------------------------------------------------------------------
 %	COPYRIGHT PAGE
 %----------------------------------------------------------------------------------------
@@ -107,7 +91,7 @@
 ~\vfill
 \thispagestyle{empty}
 
-\noindent Copyright \copyright\ 2017 Lilian Blot\\ % Copyright notice
+\noindent Copyright \copyright\ 2018 Lilian Blot\\ % Copyright notice
 
 %\noindent \textsc{Published by Publisher}\\ % Publisher
 %
@@ -116,8 +100,6 @@
 \noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
 
 %\noindent \textit{First printing, March 2013} % Printing/edition date
-
-
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
@@ -139,6 +121,9 @@
 %\mainmatter
 
 \part{Part I}
+
+\input{./Chapters/Chapter01}
+
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
