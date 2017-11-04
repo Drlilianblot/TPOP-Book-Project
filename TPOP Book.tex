@@ -1,0 +1,175 @@
+﻿%\documentclass{book}%
+\documentclass[11pt, fleqn]{book} % Default font size and left-justified equations%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------
+%
+%
+%----------------------------------------------------------
+% This is a sample document for the standard LaTeX Book Class
+% Class options
+%       --  Body text point size:
+%                        10pt (default), 11pt, 12pt
+%       --  Paper size:  letterpaper (8.5x11 inch, default)
+%                        a4paper, a5paper, b5paper,
+%                        legalpaper, executivepaper
+%       --  Orientation (portrait is the default):
+%                        landscape
+%       --  Printside:   oneside, twoside (default)
+%       --  Quality:     final(default), draft
+%       --  Title page:  titlepage, notitlepage
+%       --  Columns:     onecolumn (default), twocolumn
+%       --  Start chapter on left:
+%                        openright(no, default), openany
+%       --  Equation numbering (equation numbers on right is the default):
+%                        leqno
+%       --  Displayed equations (centered is the default):
+%                        fleqn (flush left)
+%       --  Open bibliography style (closed bibliography is the default):
+%                        openbib
+% For instance the command
+%          \documentclass[a4paper,12pt,reqno]{book}
+% ensures that the paper size is a4, fonts are typeset at the size 12p
+% and the equation numbers are on the right side.
+%
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+
+% FROM THINK LIKE ACOMPUTER SCIENTIST 
+\usepackage{epsfig}
+\usepackage{makeidx}
+\usepackage{url}
+\usepackage{amsmath, amsthm, amssymb}
+\pssilent
+
+% the following are some commands that appear in the Python version.
+% we can use them to adjust some things later, but for now they are
+% all blanked out.
+
+\newcommand{\beforefig}{}
+\newcommand{\afterfig}{}
+
+\newcommand{\beforeverb}{}
+\newcommand{\afterverb}{}
+
+\newcommand{\adjustpage}[1]{}
+
+\newcommand{\clearemptydoublepage}{\cleardoublepage}
+\newcommand{\blankpage}{\vspace*{1in}\newpage}
+
+\newtheorem{ex}{Exercise}[chapter]
+
+% END FROM THINK LIKE ACOMPUTER SCIENTIST
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
+\draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Theory and Practice of Programming\\[15pt] % Book title
+		{\Large An introduction to Python and Computational Thinking}\\[20pt] % Subtitle
+		{\huge Dr. Lilian Blot}}}; % Author name
+\end{tikzpicture}
+\vfill
+\endgroup
+
+
+%\begingroup
+%\thispagestyle{empty}
+%\begin{tikzpicture}[remember picture,overlay]
+%\coordinate [below=12cm] (midpoint) at (current page.north);
+%\node at (current page.north west)
+%{\begin{tikzpicture}[remember picture,overlay]
+%	\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{background}}; % Background image
+%	\draw[anchor=north] (midpoint) node [fill=lightblue!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Exercises and Problems\\
+%			for Introductory Programming Courses\\[15pt] % Book title
+%			{\Large A Python Based Course}\\[20pt] % Subtitle
+%			{\huge Dr. Lilian Blot}}}; % Author name
+%	\end{tikzpicture}};
+%\end{tikzpicture}
+%\vfill
+%\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright\ 2017 Lilian Blot\\ % Copyright notice
+
+%\noindent \textsc{Published by Publisher}\\ % Publisher
+%
+%\noindent \textsc{book-website.com}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+
+%\noindent \textit{First printing, March 2013} % Printing/edition date
+
+
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+
+%\mainmatter
+
+\part{Part I}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+
+%------------------------------------------------
+
+\section*{Articles}
+\addcontentsline{toc}{section}{Articles}
+\printbibliography[heading=bibempty,type=article]
+
+%------------------------------------------------
+
+\section*{Books}
+\addcontentsline{toc}{section}{Books}
+\printbibliography[heading=bibempty,type=book]
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+\printindex
+
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
