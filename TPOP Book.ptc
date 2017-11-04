@@ -31,11 +31,37 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.8}Exercises}{13}{section.1.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Bibliography}}{15}{chapter*.2}
+\contentsline {chapter}{\numberline {2}Variables, expressions and statements}{15}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Articles}{15}{section*.3}
+\contentsline {section}{\numberline {2.1}Values and types}{15}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Books}{15}{section*.4}
+\contentsline {section}{\numberline {2.2}Variables}{16}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{17}{section*.5}
+\contentsline {section}{\numberline {2.3}Variable names and keywords}{17}{section.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.4}Statements}{18}{section.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.5}Operators and operands}{18}{section.2.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.6}Expressions}{19}{section.2.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.7}Order of operations}{19}{section.2.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.8}String operations}{20}{section.2.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.9}Comments}{20}{section.2.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.10}Debugging}{21}{section.2.10}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.11}Glossary}{22}{section.2.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.12}Exercises}{22}{section.2.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\leavevmode {\color {ocre}Bibliography}}{25}{chapter*.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Articles}{25}{section*.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Books}{25}{section*.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{27}{section*.5}
 \contentsfinish 
