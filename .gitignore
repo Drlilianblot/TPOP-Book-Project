@@ -27,3 +27,7 @@
 *.synctex.gz
 *.toc
 *.tps
+
+# minted package file
+_minted-TPOP_Book/
+*.pygtex
