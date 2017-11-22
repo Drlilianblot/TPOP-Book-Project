@@ -12,7 +12,7 @@ number.  The values we have seen so far
 are {\tt 1}, {\tt 2}, and
 \verb"'Hello, World!'".
 
-These values belong to different {\bf types} also known as {bf classes} in Python 3:
+These values belong to different {\bf types} also known as {\bf classes} in Python 3. For example,
 {\tt 2} is an integer, and \verb"'Hello, World!'" is a {\bf string},
 so-called because it contains a ``string'' of letters.
 You (and the interpreter) can identify
@@ -23,21 +23,21 @@ strings because they are enclosed in quotation marks.
 The print statement also works for integers.
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> print(4)
 4
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 If you are not sure what type a value has, the interpreter can tell you.
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> type('Hello, World!')
 <class 'str'>
 >>> type(17)
 <class 'int'>
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 Not surprisingly, strings belong to the type (class) {\tt str} and
@@ -55,10 +55,10 @@ format called {\bf floating-point}.
 \index{type!float}
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> type(3.2)
 <class 'float'>
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 What about values like \verb"'17'" and \verb"'3.2'"?
@@ -68,25 +68,25 @@ strings.
 \index{quotation mark}
 %
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> type('17')
 <class 'str'>
 >>> type('3.2')
 <class 'str'>
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
-They're strings.
+They are strings.
 
 When you type a large integer, you might be tempted to use commas
 between groups of three digits, as in {\tt 1,000,000}.  This is not a
 legal integer in Python, but it is legal:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> print(1,000,000)
 1 0 0
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 Well, that's not what we expected at all!  Python interprets {\tt
@@ -115,11 +115,11 @@ An {\bf assignment statement} creates new variables and gives
 them values:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> message = 'And now for something completely different'
 >>> n = 17
 >>> pi = 3.1415926535897931
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 This example makes three assignments.  The first assigns a string
@@ -143,25 +143,25 @@ This diagram shows the result of the previous example:
 To display the value of a variable, you can use a print statement:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> print(n)
 17
 >>> print(pi)
 3.14159265359
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 The type of a variable is the type of the value it refers to.
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> type(message)
 <class 'str'>
 >>> type(n)
 <class 'int'>
 >>> type(pi)
 <class 'float'>
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 \begin{remark}
@@ -169,11 +169,11 @@ If you type an integer with a leading zero, you might get
 a confusing error:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> zipcode = 02492
                   ^
 SyntaxError: invalid token
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 \end{remark}
 
@@ -199,14 +199,14 @@ It is often used in names with multiple words, such as
 If you give a variable an illegal name, you get a syntax error:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> 76trombones = 'big parade'
 SyntaxError: invalid syntax
 >>> more@ = 1000000
 SyntaxError: invalid syntax
 >>> class = 'Advanced Theoretical Zymurgy'
 SyntaxError: invalid syntax
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 {\tt 76trombones} is illegal because it does not begin with a letter.
@@ -215,12 +215,12 @@ SyntaxError: invalid syntax
 It turns out that {\tt class} is one of Python's {\bf keywords}.  The
 interpreter uses keywords to recognize the structure of the program,
 and they cannot be used as variable names.
-Python 3 has 33 keywords has shown in Table~\ref{tab:python_keyword}.
+Python 3 has 33 keywords has shown in Table~\ref{tab:python_keywords}.
 \index{keyword}
 
 \begin{table}[htb]
 \begin{center}
-\begin{tabular}{lllll}
+\begin{tabular}{p{2cm} p{2cm} p{2cm} p{2cm} p{2cm}}
 False & class & finally & is & return\\
 None & continue & for & lambda & try\\
 True & def & from & nonlocal & while\\
@@ -259,20 +259,20 @@ as the statements execute.
 For example, the script
 
 \beforeverb
-\begin{verbatim}
+\begin{pycode}
 print(1)
 x = 2
 print(x)
-\end{verbatim}
+\end{pycode}
 \afterverb
 %
 produces the output
 
 \beforeverb
-\begin{verbatim}
+\begin{pyoutput}
 1
 2
-\end{verbatim}
+\end{pyoutput}
 \afterverb
 %
 The assignment statement produces no output.
@@ -292,9 +292,9 @@ perform addition, subtraction, multiplication, division and
 exponentiation, as in the following examples:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 20+32   hour-1   hour*60+minute   minute/60   5**2   (5+9)*(15-7)
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 
@@ -305,7 +305,7 @@ exponentiation, as in the following examples:
 Python 3, as well as other languages have an {\bf integer division} {\tt //}. The integer division operate a {\bf floor division}, that is the operator returns the whole part of the division. The result of the integer division  is an integer. If both operands are integer the value returned is a integer. Otherwise, if at least one of the operand is a float, the value returned is a float.
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> minute = 59
 >>> minute // 60
 0
@@ -316,7 +316,7 @@ Python 3, as well as other languages have an {\bf integer division} {\tt //}. Th
 1.0
 >>> minute / 60.0
 1.0166666666666666
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 \index{Python 3.0}
@@ -337,21 +337,21 @@ a variable, so the following are all legal expressions
 \index{evaluate}
 
 \beforeverb
-\begin{verbatim}
+\begin{pycode}
 17
 x
 x + 17
-\end{verbatim}
+\end{pycode}
 \afterverb
 %
 If you type an expression in interactive mode, the interpreter
 {\bf evaluates} it and displays the result:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> 1 + 1
 2
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 But in a script, an expression all by itself doesn't
@@ -363,11 +363,11 @@ Type the following statements in the Python interpreter to see
 what they do:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyexo}
 5
 x = 5
 x + 1
-\end{verbatim}
+\end{pyexo}
 \afterverb
 %
 Now put the same statements into a script and run it.  What
@@ -407,9 +407,8 @@ have the same precedence.  So {\tt 2*3-1} is 5, not 4, and
 {\tt 6+4/2} is 8, not 5.
 
 \item Operators with the same precedence are evaluated from left to 
-right.  So in the expression {\tt degrees / 2 * pi}, the division
-happens first and the result is multiplied by {\tt pi}.  
-To divide by $2 \pi$, you can use parentheses or write {\tt degrees / 2 / pi}.
+right.  So in the expression {\tt degrees/2*pi}, the division
+happens first and the result is multiplied by {\tt pi}, therefore the expression is equal to $\frac{\pi}{2}degrees$. To divide by $2 \pi$, you can use parentheses (e.g. {\tt degrees/(2*pi)}) or write {\tt degrees/2/pi}.
 
 \end{itemize}
 
@@ -427,10 +426,12 @@ Operator & Description\\\hline
 %$\hat$, \| & Bitwise exclusive `OR' and regular `OR'\\
 <=, <, >, >= & Comparison operators\\
 <>, ==, != & Equality operators\\
-= ,\%=, /=, //=, -=, +=, *=, **= & Assignment operators\\
 \verb|is|, \verb|is not| & Identity operators\\
 \verb|in|, \verb|not in| & Membership operators\\
-\verb|not|, \verb|or|, \verb|and| & Logical operators\\\hline
+\verb|not| & Logical operators\\
+\verb|and| & Logical operators\\
+\verb|or|  & Logical operators\\
+= ,\%=, /=, //=, -=, +=, *=, **= & Assignment operators\\\hline
 \end{tabular}
 \caption{Operators precedence in Python from highest precedence (top) to lowest (bottom).}
 \label{tab:operator_precedence}
@@ -445,9 +446,9 @@ In general, you cannot perform mathematical operations on strings, even
 if the strings look like numbers, so the following are illegal:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 '2'-'1'    'eggs'/'easy'    'third'*'a charm'
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 The {\tt +} operator works with strings, but it
@@ -458,11 +459,11 @@ linking them end-to-end.  For example:
 \index{concatenation}
 
 \beforeverb
-\begin{verbatim}
+\begin{pycode}
 first = 'throat'
 second = 'warbler'
 print(first + second)
-\end{verbatim}
+\end{pycode}
 \afterverb
 %
 The output of this program is {\tt throatwarbler}.
@@ -494,19 +495,19 @@ in natural language what the program is doing.  These notes are called
 {\bf comments}, and they start with the \verb"#" symbol:
 
 \beforeverb
-\begin{verbatim}
+\begin{pycode}
 # compute the percentage of the hour that has elapsed
 percentage = (minute * 100) / 60
-\end{verbatim}
+\end{pycode}
 \afterverb
 %
 In this case, the comment appears on a line by itself.  You can also put
 comments at the end of a line:
 
 \beforeverb
-\begin{verbatim}
+\begin{pycode}
 percentage = (minute * 100) / 60     # percentage of an hour
-\end{verbatim}
+\end{pycode}
 \afterverb
 %
 Everything from the {\tt \#} to the end of the line is ignored---it
@@ -519,17 +520,17 @@ the code.  It is reasonable to assume that the reader can figure out
 This comment is redundant with the code and useless:
 
 \beforeverb
-\begin{verbatim}
+\begin{pycode}
 v = 5     # assign 5 to v
-\end{verbatim}
+\end{pycode}
 \afterverb
 %
-Such comments are not helping the readability of the code, on the contrary. It is likely that a developer reading your code will stop paying attention to your comments as most of them will be useless. As a consequence, important aspect of your code that have been described in comments will be ignored. On the other hand, the following comment contains useful information that is not in the code:
+Such comments are not helping the readability of the code, on the contrary. It is likely that a developer reading your code will stop paying attention to your comments as most of them will be useless. As a consequence, important aspects of your code that have been described in comments will be ignored. On the other hand, the following comment contains useful information that is not in the code:
 
 \beforeverb
-\begin{verbatim}
+\begin{pycode}
 v = 5     # velocity in meters/second. 
-\end{verbatim}
+\end{pycode}
 \afterverb
 %
 Good variable names can reduce the need for comments, but
@@ -541,7 +542,7 @@ a tradeoff.
 
 At this point the syntax error you are most likely to make is
 an illegal variable name, like {\tt class} and {\tt yield}, which
-are keywords, or \verb"odd~job" and \verb"US£", which contain
+are keywords, or \verb"odd~job" and \verb"GBP£", which contain
 illegal characters.
 
 \index{syntax error}
@@ -551,10 +552,10 @@ If you put a space in a variable name, Python thinks it is two
 operands without an operator:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> bad name = 5
 SyntaxError: invalid syntax
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 For syntax errors, the error messages don't help much.
@@ -567,19 +568,17 @@ The most common messages are {\tt SyntaxError: invalid syntax} and
 \index{runtime error}
 \index{error!runtime}
 
-The runtime error you are most likely to make is a ``use before
-def;'' that is, trying to use a variable before you have assigned
-a value.  This can happen if you spell a variable name wrong:
+The runtime error you are most likely to make is a \verb|NameError| that is, trying to use a variable before you have assigned a value.  This can happen if you spell a variable name wrong:
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> principal = 327.68
 >>> interest = principle * rate
 Traceback (most recent call last):
   File "<pyshell#36>", line 1, in <module>
     interest = principle * rate
 NameError: name 'principle' is not defined
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 Variables names are case sensitive, so {\tt Principal} is not the
@@ -594,9 +593,9 @@ the order of operations.  For example, to evaluate $\frac{1}{2 \pi}$,
 you might be tempted to write
 
 \beforeverb
-\begin{verbatim}
+\begin{pyinterpreter}
 >>> 1.0 / 2.0 * pi
-\end{verbatim}
+\end{pyinterpreter}
 \afterverb
 %
 But the division happens first, so you would get $\pi / 2$, which
@@ -701,11 +700,11 @@ execution of the program.
 \begin{exercise}
 Assume that we execute the following assignment statements:
 
-\begin{verbatim}
+\begin{pyexo}
 width = 17
 height = 12.0
 delimiter = '.'
-\end{verbatim}
+\end{pyexo}
 
 For each of the following expressions, write the value of the
 expression and the type (of the value of the expression).
