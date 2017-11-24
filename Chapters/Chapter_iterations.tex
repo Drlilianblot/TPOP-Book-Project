@@ -25,10 +25,10 @@ print(bruce)
 %
 The output of this program is:
 \beforeverb
-\begin{pycode}
+\begin{pyoutput}
 5
 7
-\end{pycode}
+\end{pyoutput}
 \afterverb
 %
 because the first time {\tt bruce} is printed, its value is 5, and the second time, its
@@ -97,13 +97,13 @@ error, because Python evaluates the right side before it assigns
 a value to {\tt x}:
 
 \beforeverb
-\begin{pycode}
+\begin{pyinterpreter}
 >>> y = y+1
 Traceback (most recent call last):
   File "<pyshell#49>", line 1, in <module>
     y = y+1
 NameError: name 'y' is not defined
-\end{pycode}
+\end{pyinterpreter}
 \afterverb
 %
 Before you can update a variable, you have to {\bf initialize}
@@ -112,10 +112,10 @@ it, usually with a simple assignment:
 \index{initialization (before update)}
 
 \beforeverb
-\begin{pycode}
+\begin{pyinterpreter}
 >>> y = 0
 >>> y = y+1
-\end{pycode}
+\end{pyinterpreter}
 \afterverb
 %
 Updating a variable by adding 1 is called an {\bf increment};
@@ -125,6 +125,60 @@ subtracting 1 is called a {\bf decrement}.
 \index{decrement}
 
 
+\section{Simple repetition}
+\label{repetition}
+\index{repetition}
+
+In Section~\ref{sec:parameters} we wrote a function \verb|print_twice| that repeats the same task twice. The code for the function is:
+
+\beforeverb
+\begin{pycode}
+def print_twice(word):
+    print(word)
+    print(word)
+\end{pycode}
+\afterverb
+%
+If we wanted to write a function that print the same thing a thousand times, this
+approach would be impractical. Thankfully we can do the same thing more concisely
+with a {\tt for} statement as shown below. 
+
+\index{for loop}
+\index{loop!for}
+\index{statement!for}
+
+\beforeverb
+\begin{pycode}
+def print_many_times(word):
+    for i in range(1000):
+        print(word)
+\end{pycode}
+\afterverb
+%
+You should see something like this:
+
+\beforeverb
+\begin{pyinterpreter}
+>>> print_many_times('Hello.')
+Hello.
+Hello.
+Hello.
+Hello.
+Hello.
+...
+\end{pyinterpreter}
+\afterverb
+%
+This is the simplest use of the {\tt for} statement; we will see
+more later.  The syntax of a {\tt for} statement is similar to a function
+definition.  It has a header that ends with a colon and an indented
+body.  The body can contain any number of statements.
+%
+\index{loop}
+%
+A {\tt for} statement is sometimes called a {\bf loop} because
+the flow of execution runs through the body and then loops back
+to the top.  In this case, it runs the body a thousand times.
 
 
 \section{The {\tt while} statement}
@@ -138,15 +192,25 @@ Computers are often used to automate repetitive tasks.  Repeating
 identical or similar tasks without making errors is something that
 computers do well and people do poorly.
 
-{\color{red} We have seen two programs, {\tt countdown} and \verb"print_n", that
-use recursion to perform repetition, which is also called {\bf
-iteration}.}
 Because iteration is so common, Python provides several
-language features to make it easier.  {\color{red} One is the {\tt for} statement
-we saw in Section~\ref{repetition}.  We'll get back to that later.}
-
+language features to make it easier.  One is the {\tt for} statement
+we saw earlier.  
 Another is the {\tt while} statement.  Here is a version of {\tt
-countdown} that uses a {\tt while} statement:
+print\_many\_times} that uses a {\tt while} statement:
+
+\beforeverb
+\begin{pycode}
+def print_many_times(word):
+    n = 0
+    while n < 1000:
+        print(word)
+        n = n+1
+\end{pycode}
+\afterverb
+
+Lets consider a function {\tt countdown} that takes a positive number as parameter
+and print a countdown to zero, and then print \verb|'Blastoff.'|. The code for the
+function is:
 
 \beforeverb
 \begin{pycode}
@@ -180,7 +244,15 @@ body and then go back to step 1.
 \end{enumerate}
 
 This type of flow is called a {\bf loop} because the third step
-loops back around to the top.  
+loops back around to the top.  A control flow diagram for a loop is shown in Figure~\ref{fig:loop-diagram}.
+
+\begin{figure}[htb]%
+\begin{center}
+\includegraphics[height=8cm]{figs/simple-loop-diagram.png}%
+\caption{Control flow diagram of a simple while loop.}%
+\label{fig:loop-diagram}%
+\end{center}
+\end{figure}
 
 \index{condition}
 \index{loop}
@@ -238,12 +310,6 @@ for {\em all positive values} of {\tt n}.  So far\footnote{See
   \url{wikipedia.org/wiki/Collatz_conjecture}.}, no one has
 been able to prove it {\em or} disprove it!
 
-\begin{exercise}
-\color{red}
-Rewrite the function \verb"print_n" from
-Section~\ref{recursion} using iteration instead of recursion.
-\end{exercise}
-
 
 \section{{\tt break}}
 \index{break statement}
@@ -262,7 +328,7 @@ while True:
     line = input('> ')
     if line == 'done':
         break
-    print(line)
+    print('You wrote:', line)
 
 print('Done!')
 \end{pycode}
@@ -277,14 +343,25 @@ the loop.  Otherwise the program echoes whatever the user types
 and goes back to the top of the loop.  Here's a sample run:
 
 \beforeverb
-\begin{pycode}
+\begin{pyoutput}
 > not done
-not done
+You wrote: not done
 > done
 Done!
-\end{pycode}
+\end{pyoutput}
 \afterverb
 %
+
+A more general flow diagram using a break statement is shown in Figure~\ref{fig:loop-break-diagram}. In the middle of the body we have a {\tt if} statement with a {\tt testA} condition. If {\tt testA} is true, the break statement is called and the program exits the loop immediately without executing statements {\tt M}. Otherwise, the program skips over the break and continue the loop as normal.
+
+\begin{figure}[htb]%
+\begin{center}
+\includegraphics[height=9cm]{figs/simple-loop-break-diagram.png}%
+\caption{Control flow diagram of a simple while loop with a break statement. If {\tt testA} is true, the loop will terminate immediately.}%
+\label{fig:loop-break-diagram}%
+\end{center}
+\end{figure}
+
 This way of writing {\tt while} loops is common because you
 can check the condition anywhere in the loop (not just at the
 top) and you can express the stop condition affirmatively
@@ -307,30 +384,36 @@ Suppose that you want to know the square root of $a$.  If you start
 with almost any estimate, $x$, you can compute a better
 estimate with the following formula:
 
-\[ y = \frac{x + a/x}{2} \]
+\begin{center}
+\begin{equation}
+y = \frac{x + a/x}{2} 
+\label{eq:sqrt}
+\end{equation}
+\end{center}
+
 %
 For example, if $a$ is 4 and $x$ is 3:
 
 \beforeverb
-\begin{pycode}
+\begin{pyinterpreter}
 >>> a = 4.0
 >>> x = 3.0
 >>> y = (x + a/x) / 2
 >>> print(y)
 2.16666666667
-\end{pycode}
+\end{pyinterpreter}
 \afterverb
 %
 Which is closer to the correct answer ($\sqrt{4} = 2$).  If we
 repeat the process with the new estimate, it gets even closer:
 
 \beforeverb
-\begin{pycode}
+\begin{pyinterpreter}
 >>> x = y
 >>> y = (x + a/x) / 2
 >>> print(y)
 2.00641025641
-\end{pycode}
+\end{pyinterpreter}
 \afterverb
 %
 After a few more updates, the estimate is almost exact:
@@ -338,7 +421,7 @@ After a few more updates, the estimate is almost exact:
 \index{update}
 
 \beforeverb
-\begin{pycode}
+\begin{pyinterpreter}
 >>> x = y
 >>> y = (x + a/x) / 2
 >>> print(y)
@@ -347,7 +430,7 @@ After a few more updates, the estimate is almost exact:
 >>> y = (x + a/x) / 2
 >>> print(y)
 2.00000000003
-\end{pycode}
+\end{pyinterpreter}
 \afterverb
 %
 In general we don't know ahead of time how many steps it takes
@@ -356,7 +439,7 @@ because the estimate
 stops changing:
 
 \beforeverb
-\begin{pycode}
+\begin{pyinterpreter}
 >>> x = y
 >>> y = (x + a/x) / 2
 >>> print(y)
@@ -365,7 +448,7 @@ stops changing:
 >>> y = (x + a/x) / 2
 >>> print(y)
 2.0
-\end{pycode}
+\end{pyinterpreter}
 \afterverb
 %
 When {\tt y == x}, we can stop.  Here is a loop that starts
@@ -576,7 +659,7 @@ The built-in function {\tt eval} takes a string and evaluates
 it using the Python interpreter.  For example:
 
 \beforeverb
-\begin{pycode}
+\begin{pyexo}
 >>> eval('1 + 2 * 3')
 7
 >>> import math
@@ -584,7 +667,7 @@ it using the Python interpreter.  For example:
 2.2360679774997898
 >>> eval('type(math.pi)')
 <type 'float'>
-\end{pycode}
+\end{pyexo}
 \afterverb
 %
 Write a function called \verb"eval_loop" that iteratively
@@ -607,9 +690,12 @@ that can be used to generate a numerical
 approximation of $\pi$:
 
 \index{pi}
+\begin{equation}
+\frac{1}{\pi} = \frac{2\sqrt{2}}{9801} 
+\sum^\infty_{k=0} \frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}} 
+\label{eq:pi}
+\end{equation}
 
-\[\frac{1}{\pi} = \frac{2\sqrt{2}}{9801} 
-\sum^\infty_{k=0} \frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}} \]
 
 Write a function called \verb"estimate_pi" that uses this formula
 to compute and return an estimate of $\pi$.  It should use a {\tt while}
@@ -617,5 +703,5 @@ loop to compute terms of the summation until the last term is
 smaller than {\tt 1e-15} (which is Python notation for $10^{-15}$).
 You can check the result by comparing it to {\tt math.pi}.
 
-You can see my solution at \url{thinkpython.com/code/pi.py}.
+{\color{red} You can see my solution at \url{thinkpython.com/code/pi.py}.}
 \end{exercise}
