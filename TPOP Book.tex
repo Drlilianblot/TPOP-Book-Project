@@ -1,5 +1,5 @@
 ﻿%\documentclass{book}%
-\documentclass[12pt, fleqn]{book} % Default font size and left-justified equations%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+\documentclass[12pt, openany, oneside]{book} % Default font size and left-justified equations%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----------------------------------------------------------
 %
@@ -33,6 +33,54 @@
 %
 
 \input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\usepackage{parskip}
+
+\usepackage{minted}
+
+%\usemintedstyle{emacs}
+
+\colorlet{codebgcolor}{lightgray!15!}
+%\definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
+\colorlet{exocodebgcolor}{ocre!20!}
+
+\newminted[pycode]{python}{style = emacs,
+frame=leftline,
+framesep=5mm,
+baselinestretch=1,
+bgcolor=codebgcolor,
+python3 = true,
+%fontsize=\footnotesize,
+linenos,
+numbersep = 6pt
+}
+
+\newminted[pyinterpreter]{python}{style = emacs,
+frame=leftline,
+framesep=5mm,
+baselinestretch=1,
+bgcolor=codebgcolor,
+python3 = true,
+}
+
+\newminted[pyoutput]{python}{style = emacs,
+%frame=leftline,
+framesep=5mm,
+baselinestretch=1,
+bgcolor=codebgcolor,
+python3 = true,
+}
+
+\newminted[pyexo]{python}{style = emacs,
+%frame=leftline,
+framesep=5mm,
+baselinestretch=1,
+bgcolor=exocodebgcolor,
+python3 = true,
+}
+
+
+\newmintinline[pyinline]{python}{style = emacs}
 
 
 % FROM THINK LIKE ACOMPUTER SCIENTIST 
@@ -75,9 +123,10 @@
 \thispagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
-\draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Theory and Practice of Programming\\[15pt] % Book title
-		{\Large An introduction to Python and Computational Thinking}\\[20pt] % Subtitle
-		{\huge Dr. Lilian Blot}}}; % Author name
+\draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Introduction to Programming with Python 3\\[15pt] % Book title
+	{\huge Lilian Blot}\\[25pt] % Author name
+		{\large Based on \\``How to think like a computer scientist'' \\by Allen B. Downey} % Subtitle
+		}};
 \end{tikzpicture}
 \vfill
 \endgroup
@@ -108,53 +157,80 @@
 %\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
 
 \chapterimage{chapter_head_1.pdf} % Table of contents heading image
-
+%
 \pagestyle{empty} % No headers
-
+%
 \tableofcontents % Print the table of contents itself
-
-\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
-
+%
+%\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+%
 \pagestyle{fancy} % Print headers again
 
 
 %\mainmatter
 
-\part{Part I}
+%\part{Part I}
+%
+%\input{./Chapters/Chapter_introduction}
+%
+%\input{./Chapters/Chapter_expressions}
+%
+%\input{./Chapters/Chapter_functions}
+%
+%\input{./Chapters/Chapter_conditional}
+%
+%\input{./Chapters/Chapter_iterations}
 
-\input{./Chapters/Chapter01}
+%\part{Part II}
 
-\input{./Chapters/Chapter02}
+%\input{./Chapters/Chapter_strings}
+
+%\input{./Chapters/Chapter_lists}
+
+%\input{./Chapters/Chapter_dictionaries}
+
+%\input{./Chapters/Chapter_tuples}
+
+%\input{./Chapters/Chapter_files}
+
+%\input{./Chapters/Chapter_recursion}
+
+%\input{./Chapters/Chapter_recap_problem}
+
+%\input{./Chapters/Chapter_interfaces}
+
+\part{Part III - Object Oriented Programming}
+\input{./Chapters/Chapter_objects}
 
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 
-\chapter*{Bibliography}
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+%\chapter*{Bibliography}
+%\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
 
 %------------------------------------------------
 
-\section*{Articles}
-\addcontentsline{toc}{section}{Articles}
-\printbibliography[heading=bibempty,type=article]
+%\section*{Articles}
+%\addcontentsline{toc}{section}{Articles}
+%\printbibliography[heading=bibempty,type=article]
 
 %------------------------------------------------
 
-\section*{Books}
-\addcontentsline{toc}{section}{Books}
-\printbibliography[heading=bibempty,type=book]
+%\section*{Books}
+%\addcontentsline{toc}{section}{Books}
+%\printbibliography[heading=bibempty,type=book]
 
 %----------------------------------------------------------------------------------------
 %	INDEX
 %----------------------------------------------------------------------------------------
 
-\cleardoublepage
-\phantomsection
-\setlength{\columnsep}{0.75cm}
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
-\printindex
+%\cleardoublepage
+%\phantomsection
+%\setlength{\columnsep}{0.75cm}
+%\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+%\printindex
 
 %----------------------------------------------------------------------------------------
 
